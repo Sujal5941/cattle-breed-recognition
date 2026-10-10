@@ -23,3 +23,9 @@ backend/data/uploads/*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Secret key
+backend/data/secret.key
+
+# Local databases
+backend/data/*.db
