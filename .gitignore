@@ -1,0 +1,25 @@
+
+# Python virtual environment and cache
+backend/venv/
+backend/__pycache__/
+__pycache__/
+*.py[cod]
+
+# Trained model - keep outside GitHub
+backend/models/vit_cattle_model.pth
+
+# Secrets and environment files
+backend/secret.key
+.env
+.env.*
+
+# Local database and uploaded images
+backend/data/*.db
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

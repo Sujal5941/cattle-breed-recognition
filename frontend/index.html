@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CattleVision AI — Image-Based Cattle Breed Recognition</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand" data-nav="home">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F5F2E9" stroke-width="2"><path d="M4 10h16M4 14h16M4 10a8 8 0 0116 0M4 14a8 8 0 0016 0"/></svg>
+      </span>
+      CattleVision AI
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-nav="home">Home</a></li>
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#how-it-works" data-nav="how-it-works">How It Works</a></li>
+      <li><a href="#breeds" data-nav="breeds">Breeds</a></li>
+      <li><a href="#ai-model" data-nav="ai-model">AI Model</a></li>
+      <li><a href="#history" data-nav="history">History</a></li>
+    </ul>
+    <div class="account-area" id="accountArea"></div>
+    <a href="#identify" class="nav-cta" data-nav="identify">Identify Breed</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<main>
+<section id="page-home" class="page">
+  <div class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Identify cattle breeds using artificial intelligence</h1>
+        <p style="font-size:1.1rem; max-width:48ch;">Upload a cattle image and let our AI-powered Vision Transformer identify the most likely breed.</p>
+        <div class="hero-actions">
+          <a href="#identify" class="btn btn-primary" data-nav="identify">Identify a Breed</a>
+          <a href="#about" class="btn btn-ghost" data-nav="about">Explore the Project</a>
+        </div>
+      </div>
+      <div class="patch-visual">
+        <img src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?w=700&q=80" alt="Cattle in a field, shown as the Vision Transformer sees it — divided into patches" />
+        <div class="patch-grid" id="patchGrid"></div>
+        <div class="patch-caption">16×16 patch embedding · ViT-Base</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:-40px;">
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-value">3,400+</span><span class="stat-label">Cattle Images</span></div>
+      <div class="stat"><span class="stat-value">17</span><span class="stat-label">Supported Breeds</span></div>
+      <div class="stat"><span class="stat-value">224×224</span><span class="stat-label">Model Input</span></div>
+      <div class="stat"><span class="stat-value">ViT</span><span class="stat-label">Vision Transformer</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container grid-2">
+      <div>
+        <span class="eyebrow">The problem</span>
+        <h2>Breed identification usually depends on trained eyes</h2>
+        <p>Traditional cattle breed identification relies on a handler's knowledge of physical characteristics and years of field experience. CattleVision AI applies computer vision and deep learning to automatically analyze a cattle image and predict the most likely breed, making that judgment easier to access and easier to check.</p>
+        <ul class="goal-list">
+          <li>Automated, image-based breed classification</li>
+          <li>Built for real agricultural use, not just a lab demo</li>
+          <li>Designed to be easy to use from a phone in a field</li>
+          <li>A working demonstration of transformer-based computer vision</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Academic AI/ML project</span>
+        <h3>What this system does not claim</h3>
+        <p>The model recognizes exactly the 17 breeds it was trained on, and every score it reports is a statistical confidence, not a guaranteed identification. See <a href="#ai-model" data-nav="ai-model">AI Model</a> and <a href="#faq" data-nav="about">Limitations</a> for the full picture.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="page-about" class="page">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">About the project</span>
+        <h2>Image-based cattle breed recognition</h2>
+        <p>CattleVision AI pairs a fine-tuned Vision Transformer with a straightforward upload-and-analyze interface, so the underlying research is something anyone can actually try.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Objective</h3>
+          <p>Predict a cattle breed from a single photograph, using a model trained specifically for this classification task.</p>
+        </div>
+        <div class="card">
+          <h3>Approach</h3>
+          <p>A Vision Transformer pretrained on ImageNet-21k, fine-tuned on a labeled cattle image dataset covering 17 breeds.</p>
+        </div>
+        <div class="card">
+          <h3>Interface</h3>
+          <p>An upload flow that sends the image to the trained model and returns its real prediction, confidence, and top-3 alternatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="card">
+        <h3>Developed by</h3>
+        <table class="spec-table">
+          <tr><td>Developed by</td><td>[Student / Team Name]</td></tr>
+          <tr><td>Project guide</td><td>[Guide Name]</td></tr>
+          <tr><td>Department</td><td>[Department Name]</td></tr>
+          <tr><td>Institution</td><td>[College Name]</td></tr>
+        </table>
+        <p class="confidence-note">Placeholders — edit these directly in index.html once the project is finalized.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Limitations</span>
+        <h2>What this system doesn't do</h2>
+      </div>
+      <ul class="limit-list">
+        <li>The model only recognizes the 17 breeds represented in its training data.</li>
+        <li>Prediction quality depends on image quality — lighting, focus, and framing all matter.</li>
+        <li>Unusual camera angles can reduce recognition accuracy.</li>
+        <li>Breeds with similar physical traits can be harder for the model to tell apart.</li>
+        <li>This is an AI-assisted classification tool, not a substitute for expert identification.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Frequently asked</span>
+        <h2>Questions people ask</h2>
+      </div>
+      <div>
+        <details class="faq-item" open>
+          <summary>What is CattleVision AI?</summary>
+          <p>An image-based cattle breed recognition system: upload a photo, and a fine-tuned Vision Transformer predicts the most likely breed.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How many cattle breeds can the model recognize?</summary>
+          <p>17 breeds — the exact set it was fine-tuned on. See the <a href="#breeds" data-nav="breeds">Breeds</a> page for the full list.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What AI model is used?</summary>
+          <p>A Vision Transformer (ViT-Base, patch size 16, 224×224 input), pretrained on ImageNet-21k and fine-tuned for this task.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What image should I upload?</summary>
+          <p>A clear, well-lit photo showing the animal's body and features, in JPG, PNG, or WEBP format.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How does the Vision Transformer work?</summary>
+          <p>It splits the image into fixed-size patches, embeds each one, and uses self-attention to learn relationships between regions before classifying the whole image.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can the system recognize breeds outside the 17 trained classes?</summary>
+          <p>No. An image of an untrained breed will still be scored against the 17 known classes, and the result should be read with that in mind.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="page-how-it-works" class="page">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From photo to prediction, in four steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Upload</h3>
+          <p>You upload a cattle image through the Identify page, from a file or your camera.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Preprocess</h3>
+          <p>The image is validated and resized to 224×224 pixels to match the model's expected input.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>AI analysis</h3>
+          <p>The Vision Transformer splits the image into patches and analyzes them with self-attention.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Breed prediction</h3>
+          <p>The model scores all 17 breeds, and the highest-scoring one is shown as the prediction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-tight">
+    <div class="container">
+      <div class="flow">
+        Cattle Image <span class="arrow">→</span> Image Preprocessing <span class="arrow">→</span> 224×224 Input<br/>
+        <span class="arrow">↓</span><br/>
+        Vision Transformer <span class="arrow">→</span> Classification <span class="arrow">→</span> Breed Prediction
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ BREEDS ============ -->
+<section id="page-breeds" class="page">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Breeds explorer</span>
+        <h2>The 17 breeds this model recognizes</h2>
+        <p>Read directly from the trained model's label mapping — nothing here is hardcoded.</p>
+      </div>
+      <div id="breedsGrid" class="grid-4">
+        <p>Loading breed list from the model…</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ AI MODEL ============ -->
+<section id="page-ai-model" class="page">
+  <section>
+    <div class="container grid-2">
+      <div>
+        <span class="eyebrow">The model</span>
+        <h2>A Vision Transformer, fine-tuned for cattle</h2>
+        <p>Vision Transformer (ViT) applies the transformer architecture — originally built for text — directly to images. Instead of scanning the picture with sliding filters like a CNN, it divides the image into fixed-size patches, treats each patch like a "word," and uses self-attention to learn how different regions of the image relate to each other.</p>
+        <p>This model starts from <code>google/vit-base-patch16-224-in21k</code>, a ViT-Base checkpoint pretrained on ImageNet-21k, and is fine-tuned to classify cattle images into 17 breed classes.</p>
+      </div>
+      <table class="spec-table">
+        <tr><td>Architecture</td><td>Vision Transformer (ViT-Base)</td></tr>
+        <tr><td>Pretrained checkpoint</td><td>google/vit-base-patch16-224-in21k</td></tr>
+        <tr><td>Fine-tuned task</td><td>17-class cattle breed classification</td></tr>
+        <tr><td>Dataset size</td><td>3,400 images</td></tr>
+        <tr><td>Input resolution</td><td>224 × 224</td></tr>
+        <tr><td>Patch size</td><td>16 × 16</td></tr>
+        <tr><td>Optimizer</td><td>AdamW</td></tr>
+        <tr><td>Learning rate</td><td>5e-5</td></tr>
+        <tr><td>Loss function</td><td>Cross-Entropy Loss</td></tr>
+        <tr><td>Training hardware</td><td>CUDA GPU when available, otherwise CPU</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="flow">
+        Input Image <span class="arrow">→</span> Image Patches <span class="arrow">→</span> Patch Embeddings<br/>
+        <span class="arrow">↓</span><br/>
+        Transformer Encoder <span class="arrow">→</span> Self-Attention <span class="arrow">→</span> Visual Representation<br/>
+        <span class="arrow">↓</span><br/>
+        Classification Head <span class="arrow">→</span> Cattle Breed
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="card">
+        <h3>Seeing the model's attention</h3>
+        <p>Every prediction also generates an attention visualization — computed by tracing how self-attention propagates through all 12 transformer layers to the classification token, following the method from Abnar &amp; Zuidema (2020). Camera-focus-style corner brackets are drawn around the region(s) the model weighted most heavily, so you can see exactly what drove the prediction. Try it on the <a href="#identify" data-nav="identify">Identify Breed</a> page after analyzing an image.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="card">
+        <h3>Model performance</h3>
+        <p>Evaluation metrics (accuracy, precision, recall, F1, confusion matrix) will be added here once formal evaluation on a held-out test set is complete. No figures are shown until they are.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ IDENTIFY ============ -->
+<section id="page-identify" class="page">
+  <section>
+    <div class="container identify-shell">
+      <div class="section-head" style="margin-bottom:28px;">
+        <span class="eyebrow">Identify breed</span>
+        <h2>Upload an image of cattle to begin</h2>
+      </div>
+
+      <!-- Step 1: Upload -->
+      <div id="uploadStep">
+        <div class="upload-box" id="dropZone">
+          <div class="upload-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 16V4M12 4l-5 5M12 4l5 5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+          </div>
+          <h3>Drag and drop a cattle image</h3>
+          <p>or</p>
+          <button class="btn btn-primary" id="browseBtn" type="button">Upload Image</button>
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" />
+          <div class="upload-formats">JPG · PNG · WEBP · up to 10MB</div>
+        </div>
+        <div id="uploadError"></div>
+      </div>
+
+      <!-- Step 2: Preview -->
+      <div id="previewStep" style="display:none;">
+        <div class="preview-card">
+          <div class="preview-image"><img id="previewImg" src="" alt="Selected cattle image preview" /></div>
+          <div class="preview-meta">
+            <span id="previewName"></span>
+            <span id="previewSize"></span>
+          </div>
+          <div class="preview-actions">
+            <button class="btn btn-ghost" id="changeBtn" type="button">Change Image</button>
+            <button class="btn btn-primary" id="analyzeBtn" type="button">Analyze Image</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Loading -->
+      <div id="loadingStep" style="display:none;">
+        <div class="loading-card">
+          <div class="spinner"></div>
+          <h3 style="margin-top:20px;">Analyzing cattle image</h3>
+          <div class="loading-steps">
+            <div id="loadStep1">Image received</div>
+            <div id="loadStep2">Image processed</div>
+            <div id="loadStep3">AI model analyzing…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Result -->
+      <div id="resultStep" style="display:none;">
+        <div class="result-card">
+          <div class="result-image">
+            <img id="resultImg" src="" alt="Analyzed cattle image" />
+            <button class="attention-toggle" id="attentionToggleBtn" type="button" style="display:none;">View Attention Map</button>
+          </div>
+          <div class="result-body">
+            <div id="lowConfidenceNotice"></div>
+            <div class="result-eyebrow">Analysis complete · Predicted breed</div>
+            <div class="result-breed" id="resultBreed">—</div>
+            <div class="result-confidence" id="resultConfidence">Model confidence: —</div>
+
+            <h3>Top predictions</h3>
+            <div id="predList"></div>
+            <p class="confidence-note">Scores reflect the model's confidence, not a guaranteed real-world identification.</p>
+            <p class="confidence-note" id="saveStatusNote"></p>
+
+            <div class="result-actions">
+              <button class="btn btn-primary" id="viewBreedBtn" type="button">View Breed Details</button>
+              <button class="btn btn-ghost" id="downloadResultBtn" type="button">Download Result Card</button>
+              <button class="btn btn-ghost" id="copyResultBtn" type="button">Copy Result</button>
+              <button class="btn btn-ghost" id="analyzeAnotherBtn" type="button">Analyze Another Image</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="predictError"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============ HISTORY ============ -->
+<section id="page-history" class="page">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Your history</span>
+        <h2>Past predictions</h2>
+        <p>Every image you analyze while logged in is saved here, so you can look back at what you've tested.</p>
+      </div>
+      <div id="historyContent"><p>Loading…</p></div>
+    </div>
+  </section>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <strong>CattleVision AI</strong><br/>
+      Image-Based Cattle Breed Recognition System — an academic AI/ML project.
+    </div>
+    <div>
+      Model: ViT-Base · 17 breeds · 3,400 training images
+    </div>
+  </div>
+</footer>
+
+<!-- Breed detail modal -->
+<div class="modal-backdrop" id="breedModalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="breedModalClose" aria-label="Close">✕</button>
+    <span class="placeholder-tag">Placeholder content</span>
+    <h2 id="breedModalName">Breed name</h2>
+    <p><strong>Origin:</strong> <span id="breedModalOrigin">Not available yet</span></p>
+    <p><strong>General characteristics:</strong> Verified breed information will be added here as it becomes available for this project.</p>
+    <p><strong>Identification features:</strong> Verified breed information will be added here as it becomes available for this project.</p>
+  </div>
+</div>
+
+<!-- Chat widget -->
+<div class="chat-widget" id="chatWidget">
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <span>CattleVision Assistant</span>
+      <button class="chat-close" id="chatCloseBtn" aria-label="Close chat">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg chat-msg-bot">Hi! I can answer questions about CattleVision AI — the 17 breeds it supports, how the Vision Transformer works, or how to use this site. What would you like to know?</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Ask about the project…" autocomplete="off" />
+      <button id="chatSendBtn" type="button">Send</button>
+    </div>
+    <div class="chat-note">Powered by a local Ollama model on this machine</div>
+  </div>
+  <button class="chat-toggle" id="chatToggleBtn" aria-label="Open chat assistant">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-8.5 8.5c-1.2 0-2.34-.26-3.36-.73L3 21l1.73-4.14A8.47 8.47 0 013.5 11.5 8.5 8.5 0 0112 3a8.5 8.5 0 019 8.5z"/></svg>
+  </button>
+</div>
+
+<!-- Login / register modal -->
+<div class="modal-backdrop" id="authModalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="authModalClose" aria-label="Close">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="authTabLogin" type="button">Log In</button>
+      <button class="auth-tab" id="authTabRegister" type="button">Create Account</button>
+    </div>
+    <form id="authForm">
+      <label class="auth-field">
+        <span>Username</span>
+        <input type="text" id="authUsername" required minlength="3" autocomplete="username" />
+      </label>
+      <label class="auth-field">
+        <span>Password</span>
+        <input type="password" id="authPassword" required minlength="6" autocomplete="current-password" />
+      </label>
+      <div id="authError"></div>
+      <button class="btn btn-primary" type="submit" id="authSubmitBtn" style="width:100%; margin-top:6px;">Log In</button>
+    </form>
+    <p class="confidence-note" style="margin-top:14px;">Stored locally in this project's own database — not shared with any third party.</p>
+  </div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/chat.js"></script>
+</body>
+</html>

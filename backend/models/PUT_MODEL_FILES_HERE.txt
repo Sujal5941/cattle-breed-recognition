@@ -1,0 +1,9 @@
+Copy these two files into this folder:
+
+  vit_cattle_model.pth
+  labels.json
+
+Optional:
+  preprocessor_config.json
+
+See ../../README.md for full setup instructions.
